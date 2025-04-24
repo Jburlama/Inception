@@ -1,0 +1,41 @@
+services:
+ nginx:
+  build: ./nginx/
+  image: nginx:custom
+  container_name: nginx
+  ports:
+   - "443:443"
+  depends_on:
+   - wordpress
+  volumes:
+   - /var/www/html:/var/www/html
+  networks:
+   - inception
+
+ wordpress:
+  build: ./wordpress/
+  image: wordpress:custom
+  container_name: wordpress
+  depends_on:
+   - mariadb
+  expose:
+   - 9000
+  volumes:
+   - /var/www/html:/var/www/html
+  networks:
+   - inception
+
+ mariadb:
+  build: ./mariadb/
+  image: maiadb:custom
+  container_name: mariadb
+  expose:
+   - 3306
+  volumes:
+   - /var/lib/mysql:/var/lib/mysql
+  networks:
+   - inception
+
+networks:
+ inception:
+  name: inception
