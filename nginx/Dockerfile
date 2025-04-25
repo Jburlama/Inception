@@ -11,6 +11,4 @@ RUN apt update && apt upgrade -y && apt install nginx openssl -y \
 
 COPY default /etc/nginx/sites-enabled/
 
-EXPOSE 443
-
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
