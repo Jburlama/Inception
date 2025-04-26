@@ -8,6 +8,4 @@ RUN mkdir -p /run/php && chown -R www-data:www-data /run/php
 
 COPY www.conf /etc/php/7.4/fpm/pool.d/.
 
-EXPOSE 9000
-
 ENTRYPOINT ["/usr/sbin/php-fpm7.4", "-F"]

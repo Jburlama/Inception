@@ -1,16 +1,12 @@
 FROM debian:bullseye
 
-WORKDIR app/
-
-
 RUN apt update && apt upgrade -y && apt install -y mariadb-server
 
+WORKDIR app/
+
 COPY 50-server.cnf /etc/mysql/mariadb.conf.d/.
-
 COPY script.sh .
-
+COPY init.sql .
 RUN chmod +x script.sh
-
-RUN mkdir /run/mysqld
 
 ENTRYPOINT ["./script.sh"]

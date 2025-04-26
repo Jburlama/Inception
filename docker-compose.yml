@@ -1,8 +1,9 @@
 services:
  nginx:
   build: ./nginx/
-  image: nginx:custom
+  image: nginx:42
   container_name: nginx
+  restart: on-failure
   ports:
    - "443:443"
   depends_on:
@@ -14,12 +15,11 @@ services:
 
  wordpress:
   build: ./wordpress/
-  image: wordpress:custom
+  image: wordpress:42
   container_name: wordpress
-  depends_on:
-   - mariadb
+  restart: on-failure
   expose:
-   - 9000
+   - "9000"
   volumes:
    - /var/www/html:/var/www/html
   networks:
@@ -27,15 +27,16 @@ services:
 
  mariadb:
   build: ./mariadb/
-  image: maiadb:custom
+  image: mariadb:42
   container_name: mariadb
+  restart: on-failure
   expose:
-   - 3306
+   - "3306"
   volumes:
-   - /var/lib/mysql:/var/lib/mysql
+    - /var/lib/mysql:/var/lib/mysql
   networks:
    - inception
 
 networks:
  inception:
-  name: inception
+   driver: bridge

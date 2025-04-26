@@ -9,6 +9,6 @@ RUN apt update && apt upgrade -y && apt install nginx openssl -y \
 	&& chmod 600 /etc/nginx/ssl/private.key \
 	&& chmod 644 /etc/nginx/ssl/certificate.crt
 
-COPY default /etc/nginx/sites-enabled/
+COPY default.conf /etc/nginx/conf.d/.
 
 ENTRYPOINT ["nginx", "-g", "daemon off;"]

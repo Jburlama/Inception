@@ -1,9 +1,9 @@
 #!/bin/sh
 
-/etc/init.d/mariadb start
+mariadbd-safe
 
 while true; do
-	/etc/init.d/mariadb status
+	service mariadb status
 	if [ $? -eq 0 ]; then
 		break;
 	fi
@@ -11,4 +11,4 @@ done
 
 mariadb < init.sql
 
-exec mariadbd
+exec mariadb

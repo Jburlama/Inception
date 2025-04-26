@@ -5,7 +5,7 @@ up:
 	docker compose up -d --remove-orphans
 
 rmi:
-	docker rmi -f nginx:custom wordpress:custom mariadb:custom
+	docker rmi -f nginx:42 wordpress:42 mariadb:42
 
 kill:
 	docker kill nginx wordpress mariadb
