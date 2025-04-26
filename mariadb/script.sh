@@ -1,5 +1,6 @@
 #!/bin/sh
 
+
 mariadbd-safe
 
 while true; do
@@ -12,3 +13,4 @@ done
 mariadb < init.sql
 
 exec mariadb
+

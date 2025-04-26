@@ -33,7 +33,7 @@ services:
   expose:
    - "3306"
   volumes:
-    - /var/lib/mysql:/var/lib/mysql
+    - /home/jburlama/data:/var/lib/mysql
   networks:
    - inception
 

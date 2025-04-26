@@ -10,5 +10,10 @@ rmi:
 kill:
 	docker kill nginx wordpress mariadb
 
+down:
+	docker compose down
 
-re: kill rmi build
+prune:
+	docker builder prune -f
+
+re: kill rmi prune build
