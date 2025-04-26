@@ -1,11 +1,19 @@
 FROM debian:bullseye
 
+WORKDIR app/
+
 RUN apt update && apt upgrade -y \
-	&& apt install php7.4-fpm php7.4-mysqli curl -y \
+	&& apt install wget php7.4-fpm php7.4-mysqli curl -y \
 	&& mkdir -p /run/php
 
 RUN mkdir -p /run/php && chown -R www-data:www-data /run/php
+RUN mkdir -p /var/www/html
 
 COPY www.conf /etc/php/7.4/fpm/pool.d/.
+COPY wp-config.php .
+COPY wp-install.sh .
+
+RUN chmod +x wp-install.sh
+RUN ./wp-install.sh
 
 ENTRYPOINT ["/usr/sbin/php-fpm7.4", "-F"]
