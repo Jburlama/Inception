@@ -7,7 +7,6 @@ WORKDIR app/
 
 COPY 50-server.cnf /etc/mysql/mariadb.conf.d/.
 COPY script.sh .
-COPY init.sql .
 RUN chmod +x script.sh
 
 ENTRYPOINT ["./script.sh"]

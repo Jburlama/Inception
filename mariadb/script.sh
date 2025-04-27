@@ -1,5 +1,4 @@
-#!/bin/sh
-
+#!/bin/bash
 
 mariadbd-safe
 
@@ -10,7 +9,12 @@ while true; do
 	fi
 done
 
-mariadb < init.sql
+mariadb << EOF
+CREATE DATABASE IF NOT EXISTS wp_site;
+CREATE USER IF NOT EXISTS 'jburlama'@'%' IDENTIFIED BY '${PASSWD}';
+GRANT ALL PRIVILEGES ON wp_site.* TO 'jburlama'@'%' IDENTIFIED BY '${PASSWD}';
+FLUSH PRIVILEGES;
+EOF
 
 exec mariadb
 

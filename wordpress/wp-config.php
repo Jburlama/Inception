@@ -18,6 +18,7 @@
  * @package WordPress
  */
 
+
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define( 'DB_NAME', 'wp_site' );
@@ -26,7 +27,7 @@ define( 'DB_NAME', 'wp_site' );
 define( 'DB_USER', 'jburlama' );
 
 /** Database password */
-define( 'DB_PASSWORD', 'Jhonas123!' );
+define( 'DB_PASSWORD', getenv('PASSWD') );
 
 /** Database hostname */
 define( 'DB_HOST', 'mariadb' );

@@ -17,3 +17,7 @@ prune:
 	docker builder prune -f
 
 re: kill rmi prune build
+
+clean: kill
+
+fclean: kill rmi prune
