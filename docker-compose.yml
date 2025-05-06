@@ -66,14 +66,15 @@ services:
   image: ftp:42
   container_name: ftp
   restart: on-failure
-  expose:
-   - "21"
+  ports:
+    - "20:20"
+    - "21:21"
   depends_on:
-   - nginx
+   - wordpress
   networks:
    - inception
   volumes:
-    - wordpress:/var/www/html
+    - wordpress:/home/jburlama
   env_file:
     - .env
 
