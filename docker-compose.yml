@@ -69,12 +69,13 @@ services:
   ports:
     - "20:20"
     - "21:21"
+    - "40000-40005:40000-40005"
   depends_on:
    - wordpress
   networks:
    - inception
   volumes:
-    - wordpress:/home/jburlama
+    - wordpress:/home/jburlama/ftp/files
   env_file:
     - .env
 

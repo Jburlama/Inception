@@ -1,13 +1,11 @@
-FROM debian:bullseye
+FROM debian:buster
 
 WORKDIR app/
 
-RUN apt update && apt upgrade -y && apt install vsftpd -y
+RUN apt update && apt upgrade -y
+RUN apt install vsftpd -y
 
-RUN adduser jburlama --disabled-password
-# RUN echo "jburlama:$PASSWD" | chpasswd
+COPY script.sh .
 
-COPY vsftpd.conf /etc/.
-COPY vsftpd.userlist /etc/.
+CMD ["./script.sh"]
 
-ENTRYPOINT ["vsftpd"]
