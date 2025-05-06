@@ -15,5 +15,7 @@ COPY wp-install.sh .
 
 RUN chmod +x wp-install.sh
 RUN ./wp-install.sh
+RUN rm wp-install.sh
+RUN mv * /var/www/html
 
 ENTRYPOINT ["/usr/sbin/php-fpm7.4", "-F"]
