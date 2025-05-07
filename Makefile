@@ -5,10 +5,10 @@ up:
 	docker compose up -d --remove-orphans
 
 rmi:
-	docker rmi -f nginx:42 wordpress:42 mariadb:42 redis:42 ftp:42
+	docker rmi -f nginx:42 wordpress:42 mariadb:42 redis:42 ftp:42 cadvisor:42
 
 kill:
-	docker kill nginx wordpress mariadb redis ftp
+	docker kill nginx wordpress mariadb redis ftp cadvisor
 
 down:
 	docker compose down

@@ -79,6 +79,21 @@ services:
   env_file:
     - .env
 
+ cadvisor:
+  container_name: cadvisor
+  build: ./requirements/cadvisor/.
+  image: cadvisor:42
+  restart: on-failure
+  ports:
+   - "8080:8080"
+  networks:
+   - inception
+  volumes:
+    - /:/rootfs:ro
+    - /var/run:/var/run:ro 
+    - /sys:/sys:ro 
+    - /var/lib/docker/:/var/lib/docker:ro
+
 networks:
  inception:
    driver: bridge
