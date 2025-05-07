@@ -1,0 +1,3 @@
+Warning: No WordPress installation found. If the command 'redis status' is in a plugin or theme, pass --path=`path/to/wordpress`.
+Error: 'redis' is not a registered wp command. See 'wp help' for available commands.
+Did you mean 'media'?

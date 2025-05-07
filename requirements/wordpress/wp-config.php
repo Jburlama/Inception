@@ -38,8 +38,12 @@ define( 'DB_CHARSET', 'utf8' );
 /** The database collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
 
-define( 'WP_REDIS_HOST', '192.168.1.12' );
+define( 'WP_REDIS_HOST', 'redis' );
 define( 'WP_REDIS_PORT', 6379 );     
+
+// Force Redis cache drop-in
+define('WP_REDIS_DISABLED', false);
+define('WP_REDIS_IGNORE_GLOBAL_GROUPS', true);
 
 define('WP_CACHE', true);
 
