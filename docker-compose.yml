@@ -57,7 +57,8 @@ services:
   networks:
    - inception
   volumes:
-    - wordpress:/var/www/html
+   - redis:/var/lib/redis
+   - wordpress:/var/www/html
   env_file:
     - .env
 
@@ -93,4 +94,9 @@ volumes:
     driver_opts:
       type: none
       device: /home/jburlama/data/mariadb
+      o: bind
+  redis:
+    driver_opts:
+      type: none
+      device: /home/jburlama/data/redis
       o: bind

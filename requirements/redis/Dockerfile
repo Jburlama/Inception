@@ -1,8 +1,11 @@
-FROM debian:bullseye
+FROM debian:buster
 
-WORKDIR app/
-RUN apt update && apt upgrade -y && apt install redis-server -y
+RUN apt-get -y update && apt install redis-server -y
 
 COPY redis.conf /etc/redis/.
 
-ENTRYPOINT ["redis-server"]
+# RUN echo "vm.overcommit_memory=1" >> /etc/sysctl.conf
+# ENTRYPOINT ["redis-server", "--protected-mode", "no"]
+
+ENTRYPOINT ["redis-server", "/etc/redis/redis.conf"]
+
