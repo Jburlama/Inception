@@ -1,5 +1,5 @@
-containers = nginx wordpress mariadb redis ftp cadvisor
-images = nginx:42 wordpress:42 mariadb:42 redis:42 ftp:42 cadvisor:42
+CONTAINERS = nginx wordpress mariadb redis ftp cadvisor
+IMAGES = nginx:42 wordpress:42 mariadb:42 redis:42 ftp:42 cadvisor:42
 
 
 build:
@@ -9,10 +9,10 @@ up:
 	docker compose up -d --remove-orphans
 
 rmi:
-	docker rmi -f images
+	docker rmi -f ${IMAGES}
 
 kill:
-	docker kill conatiners
+	docker kill ${CONTAINERS}
 
 down:
 	docker compose down
