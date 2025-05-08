@@ -58,6 +58,8 @@ services:
    - mariadb
   networks:
    - inception
+  volumes:
+   - redis:/var/lib/redis
   env_file:
     - .env
 
