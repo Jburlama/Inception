@@ -50,15 +50,14 @@ services:
   image: redis:42
   container_name: redis
   restart: on-failure
+  ports:
+   - "6379:6379"
   expose:
    - "6379"
   depends_on:
-   - wordpress
+   - mariadb
   networks:
    - inception
-  volumes:
-   - redis:/var/lib/redis
-   - wordpress:/var/www/html
   env_file:
     - .env
 
@@ -79,6 +78,21 @@ services:
     - wordpress:/home/jburlama/ftp/files
   env_file:
     - .env
+
+ cadvisor:
+  container_name: cadvisor
+  build: ./requirements/cadvisor/.
+  image: cadvisor:42
+  restart: on-failure
+  ports:
+   - "8080:8080"
+  networks:
+   - inception
+  volumes:
+    - /:/rootfs:ro
+    - /var/run:/var/run:ro 
+    - /sys:/sys:ro 
+    - /var/lib/docker/:/var/lib/docker:ro
 
 networks:
  inception:
