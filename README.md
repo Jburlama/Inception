@@ -1,4 +1,4 @@
-## This is a 42-school project aimed to broaden my knowledge of system administration through the use of Docker. This project involves setting up a small infrastructure composed of different services under specific rules
+### This is a 42-school project aimed to broaden my knowledge of system administration through the use of Docker. This project involves setting up a small infrastructure composed of different services under specific rules
 
 - The whole project has to be done in a virtual machine. Docker Compose must be used.
 - Each service has to run in a dedicated containe.
