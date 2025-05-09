@@ -217,6 +217,7 @@ server {
 # Wordpress
 
 WordPress is a free platform for creating websites and blogs
+PHP-FPM (FastCGI Process Manager) is a tool that helps your web server (like Nginx) run PHP code more efficiently. 
 
 ```Dockerfile
 FROM debian:bullseye
