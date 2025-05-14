@@ -489,11 +489,12 @@ allow_writeable_chroot=YES
 pasv_enable=YES
 pasv_min_port=40000
 pasv_max_port=40005
-pasv_address=jburlama.42.fr  # Your host's LAN IP
 userlist_enable=YES
-userlist_file=/etc/vsftpd.userlist
 userlist_deny=NO
 seccomp_sandbox=NO
+nopriv_user=ftp
+pam_service_name=vsftpd
+userlist_file=/etc/vsftpd.userlist
 ```
 
 ```vsftpd.userlist
