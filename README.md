@@ -1,14 +1,14 @@
-### This is a 42-school project aimed to broaden my knowledge of system administration through the use of Docker. This project involves setting up a small infrastructure composed of different services under specific rules
+### This project aims to broaden my knowledge of system administration through the use of Docker. This project involves setting up a small infrastructure composed of different services under specific rules
 
 - The whole project has to be done in a virtual machine. Docker Compose must be used.
-- Each service has to run in a dedicated containe.
+- Each service has to run in a dedicated container.
 - For performance reasons, the containers must be built from either the penultimate stable version of Alpine or Debian
-- One Dockerfile must be writen per service. We have to build the docker images.
+- One Dockerfile must be written per service. We have to build the Docker images.
 - The Dockerfiles must be called in docker-compose.yml by the Makefile.
 - It is then forbidden to pull ready-made Docker images or use services such as DockerHub (Alpine/Debian being excluded from this rule).
 
 
-### I Have to set up:
+### I have to set up:
 
 • A Docker container that contains NGINX with TLSv1.2 or TLSv1.3 only.
 
